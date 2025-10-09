@@ -1,2 +1,2 @@
 # photo-mosaic
-python script for creating photomosaic images with a smaller image dataset
+python script for an alternative way to create photomosaic images, when the image dataset is small
