@@ -1,4 +1,4 @@
-# BRC-Mosaic: Balanced Random Color-Matched Mosaic
+# balanced-photomosaic
 
 An alternative-approach photomosaic generator that balances tile usage randomly and color-matches each placement to its target patch.
 
