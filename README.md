@@ -1,4 +1,4 @@
-# balanced-photomosaic
+# balanced-photo-to-mosaic
 
 An alternative-approach photomosaic generator that balances tile usage randomly and color-matches each placement to its target patch.
 
