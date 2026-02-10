@@ -1,4 +1,4 @@
-# balanced-photo-to-mosaic
+# Balanced Photo to Mosaic
 
 A tool for generating photo mosaics — images recreated by arranging many smaller tile images — using a balanced tile usage strategy. 
 
