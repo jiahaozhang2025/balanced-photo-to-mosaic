@@ -1,20 +1,8 @@
 # balanced-photo-to-mosaic
 
-An alternative-approach photomosaic generator that balances tile usage randomly and color-matches each placement to its target patch.
+A tool for generating photo mosaics — images recreated by arranging many smaller tile images — using a balanced tile usage strategy. 
 
-This avoids the classic failure mode where large areas of similar colors—or a tile set that doesn’t sample the RGB space enough—cause the same few tiles to repeat over huge swathes of the image.
-
-Traditional “match-and-select” mosaics choose, for each grid cell, the single best-matching tile from your library. When the target image has big regions with similar RGB values (sky, walls, skin, ocean) or your tile dataset doesn’t sample the RGB space enough, the same tile wins over and over, creating visible repetition and banding.
-
-For example, you might be tasked with generating a mosaic of your organization's logo using members' profile photos as tiles. Member A has their entire face fill up the photo, while Member B has a full-body portrait on top of a snowy mountain as the photo. Then, all white areas of the company logo will be dominated by Member B's photo, whereas Member A is nowhere to be found. In practice, photos that are not this obviously different can suffer such problem just as well.
-
-This approach solves this issue by:
-
-* Variety first: Assign tiles randomly but balanced (so the whole set gets used evenly).
-
-* Fidelity per cell: Recolor each chosen tile to match the local patch’s statistics (mean, mean+std, or just luma).
-
-You keep global target fidelity and local variety—even with small or color-limited tile sets.
+Unlike traditional mosaics that select the closest color match for each tile and can overuse similar tiles in large uniform regions, this approach distributes tiles more evenly across the mosaic while still color-matching each placement to the target image. The result is mosaics with better variety and reduced repetitiveness, even with limited or color-biased tile sets.
 
 # Installation
 
@@ -39,7 +27,7 @@ Here is my octocat (from https://myoctocat.com/)
 
 Here is the comparison of the mosaic built from a dataset of emojis. Which is better is of course a matter of personal taste, personally I do not want my octocat face to be made of emojis of poopies and aliens. 
 
-Interestingly, in `meanstd` mode, emojis show up primarily along the contour, hence highlighting the features in the target image. You can check the math in the code, but basically: in chromatically uniform regions the color variation is low -> the ratio of target std over emoji std is low -> this ratio sets how much the original contrast of the emoji is preserved -> so the contrast of emoji tile is suppressed and blent into background.
+Interestingly, in `meanstd` mode, emojis show up primarily along the contour, hence highlighting the features in the target image. You can check the detailed implementation in the code, but basically: in chromatically uniform regions the color variation is low -> the ratio of target std over emoji std is low -> this ratio sets how much the original contrast of the emoji is preserved -> so the contrast of emoji tile is suppressed and blent into background.
 
 | Target | Conventional Approach |
 |:------:|:--------------:|
