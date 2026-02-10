@@ -4,20 +4,19 @@ A tool for generating photo mosaics — images recreated by arranging many small
 
 Unlike traditional mosaics that select the closest color match for each tile and can overuse similar tiles in large uniform regions, this approach distributes tiles more evenly across the mosaic while still color-matching each placement to the target image. The result is mosaics with better variety and reduced repetitiveness, even with limited or color-biased tile sets.
 
-# Installation
+## Installation
 
     pip install pillow numpy
     
-# Usage
-
-    python photomosaic.py target.jpg tiles_folder --tile-size 50 --enlargement 8 --mode meanstd --seed 123 --out mosaic.jpeg
-
-or just
+## Usage
 
     python photomosaic.py target.jpg tiles_folder
 
+or 
+    
+    python photomosaic.py target.jpg tiles_folder --tile-size 50 --enlargement 8 --mode meanstd --seed 123 --out mosaic.jpeg
 
-# Example
+## Example
 
 Here is my octocat (from https://myoctocat.com/)
 
@@ -39,4 +38,7 @@ Interestingly, in `meanstd` mode, emojis show up primarily along the contour, he
 
 # Acknowledgements
 
-Inspired by the classic best-fit photomosaic approach by codebox: https://github.com/codebox/mosaic.git
+Inspired by the classic best-fit photomosaic approach by codebox: 
+https://github.com/codebox/mosaic.git
+
+
